@@ -1,0 +1,24 @@
+The martingale technique works on every roulette table.
+It guarantees the player profit as long as he doubles up his bet whenever he loses.
+
+There are many modified martingale techniques, but the one being coded ensures profit for every roulette spin.
+This is by betting on Red and Black simultaneously.
+
+The code for the martingale technique is now only compatible with certain screen resolutions and only one specific website (since it uses pixel colour detection, websites may differ)
+
+However, the method is exactly the same and will prove profitable on any website.
+
+Limitations of the martingale technique are:
+- Doubling up until out of budget
+- Doubling up until max bet has been reached
+- Detected by algorithm against martingale
+
+The AntiMartingale looks at how to prevent users from making the house lose a lot of money.
+One way the house can stop the martingale technique from being used is by setting a max amount of money that can be bet on any spot at one time.
+
+For example, if you have lost 5 times consecutively, normally your 6th bet would be double the 5th (2^5 = 32).
+But if the house has set the max amount of cash you can bet on Red or Black to be £30 then martingale would not work since 30 is not the double of 16, and even if you wont £30 you would not make all the money back, and if you lost then you would be prevented from doubling up again and total to losing all your previous bets.
+
+For testing purposes, 
+
+Another way to prevent users from using the martingale technique is to officialy ban its use in their terms and conditions. If so, they would need an algorithm to detect wether players are using the martingale or not. This will be coded soon.
