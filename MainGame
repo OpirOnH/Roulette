@@ -1,0 +1,62 @@
+#include <Windows.h>
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <stack>
+#include <cmath>
+#include <random>
+
+int GenerateRandomNumber()
+{
+	std::random_device rd;
+	std::mt19937 eng(rd());
+	std::uniform_int_distribution<> distr(0, 36);
+
+	int winner = distr(eng);
+
+	return winner;
+}
+
+int WinningNumber()
+{
+	int winner;
+
+	for (int loop = 1; loop < 2; loop++) 
+	{
+		winner = GenerateRandomNumber();
+		std::cout << winner;
+		system("pause");
+	}
+	return winner;
+}
+
+void MakeFile()
+{
+	int output = WinningNumber();
+	std::ofstream outfile("Winning Numbers.txt");
+	outfile << (output) << std::endl;
+	outfile.close();
+}
+
+int Button()
+{
+	MSG msg;
+	HWND Spin = CreateWindow(TEXT("button"), TEXT("Spin"), WS_VISIBLE | WS_POPUP, 200, 150, 100, 50, NULL, NULL, NULL, NULL);
+
+	ShowWindow(Spin, SW_SHOW);
+	UpdateWindow(Spin);
+
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	return (int)msg.wParam;
+}
+
+int main()
+{
+	Button();
+	MakeFile();
+}
